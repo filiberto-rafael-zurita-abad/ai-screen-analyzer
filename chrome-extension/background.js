@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'send_message') {
     // Handle message from popup
     console.log('Message from popup:', request.message);
-    const apiKey = 'AIzaSyAk9eD7dtSOyKX1LhLf6bsZtIr_q7pr3wE';
+    const apiKey = process.env.GEMINI_API_KEY;
     fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent', {
       method: 'POST',
       headers: {
